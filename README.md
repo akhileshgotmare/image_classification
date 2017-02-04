@@ -6,6 +6,9 @@ Given a set of labeled images, the idea is to store 4096 descriptors obtained by
 
 This can be further improved if we hash these descriptors to a binary code of k-length, where k is a hyper-parameter and store only these binary codes. This hashing is done by WTA (winner take all) which essentially represents a set of inequalities on the input vector (4096 descriptor in this case). 
 
+Project Presentation at IITGN (APR 2016):
+https://drive.google.com/file/d/0B6uAJSfesxBXM2o0Wl9ocC1pQVk/view
+
 WTA paper:
 Yagnik, Jay, et al. "The power of comparative reasoning." Computer Vision (ICCV), 2011 IEEE International Conference on. IEEE, 2011.
 
