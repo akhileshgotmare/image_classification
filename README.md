@@ -1,10 +1,9 @@
-# perks of the winner-take-all (WTA) hash codes 
+# Perks of the winner-take-all (WTA) hash codes 
 
 This work studies the uses of WTA hashing applied to image datasets (WTA mappings of the images). 
 
 Consider a simple machine learning technique - [K nearest neighbors classfier](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm). 
 Given a dataset of labeled images, the idea is to store 4096 descriptors obtained by a pre-trained convolutional neural network (Places CNN) and then apply the WTA hashing on these descriptors (essentially vectors of length 4096) to obtain the k-bit WTA code where k is a hyper-parameter. 
-
 
 # image_classification
 Image Classification using Deep Learning and WTA Hashing
