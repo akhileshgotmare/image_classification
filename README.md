@@ -2,7 +2,7 @@
 
 This work studies the uses of WTA hashing applied to image datasets (WTA mappings of the images). 
 
-Consider a simple machine learning technique: K nearest neighbors classifier! \href{https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm}{Knn }Imagine a simple machine learning classifier that takes an image as an input and predicts its' class. 
+Consider a simple machine learning technique - [K nearest neighbors classfier](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm). 
 Given a dataset of labeled images, the idea is to store 4096 descriptors obtained by a pre-trained convolutional neural network (Places CNN) and then apply the WTA hashing on these descriptors (essentially vectors of length 4096) to obtain the k-bit WTA code where k is a hyper-parameter. 
 
 
