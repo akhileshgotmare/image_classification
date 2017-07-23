@@ -1,25 +1,21 @@
 # Perks of the winner-take-all (WTA) hash codes 
 
-This work studies the uses of WTA hashing applied to image datasets (WTA mappings of the images). 
+This work studies the uses of WTA hashing first introduced by [1] applied to image datasets (WTA mappings of the images). 
 
-Consider a simple machine learning technique - [K nearest neighbors classfier](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm). 
-Given a dataset of labeled images, the idea is to store 4096 descriptors obtained by a pre-trained convolutional neural network (Places CNN) and then apply the WTA hashing on these descriptors (essentially vectors of length 4096) to obtain the k-bit WTA code where k is a hyper-parameter. 
+Consider a simple machine learning technique - [K nearest neighbors classfier](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm), given a dataset of labeled images, the objective is to classify a new image that is given as an input. The 4096 descriptor of an image obtained by a pre-trained convolutional neural network (Places CNN) are great representations and carry the discriminative power required to classify an image as evident by the success of deep learning in recent years [2]. 
 
-# image_classification
-Image Classification using Deep Learning and WTA Hashing
+The **goal** of this work is to show that we obtain comparable accuracy even if the knn classifier uses the WTA hash codes (which can be very small in size compared to the descriptors) of these 4096 image descriptors instead of the descriptors themselves. The fact that WTA codes carry this discriminative power can be used to build systems with lesser storage requirements since we can get away with storing just the WTA code of an image instead of the pixel data or the descriptor data. 
 
-
-Given a set of labeled images, the idea is to store 4096 descriptors obtained by a pre-trained convolutional neural network (Places CNN) and use these descriptors instead of the entire image for classification. This results in considerable storage efficiencey (since we're storing only the descriptors that occupy 4096 x 4 bytes as opposed to a 256 x 256 pixels image for our classification task). 
-
-This can be further improved if we hash these descriptors to a binary code of k-length, where k is a hyper-parameter and store only these binary codes. This hashing is done by WTA (winner take all) which essentially represents a set of inequalities on the input vector (4096 descriptor in this case). Finally we use a basic classifier like k-nn to test our performance by both the approaches - one involving k-nn trained on 4096 descriptors and other involving k-nn trained on 2000 bit WTA hashed codes. 
+Note that the size of the WTA code can be decided by a hyper-parameter involved in the hashing. The greater the WTA length, the better is the performance accuracy initially until a certain threshold is reached after which the gains in accuracy by increasing the WTA code lenght are insignificant. Our experiments show that a code of 2000 bits length obtains comparable accuracy to 4096 descriptors. Also note that a 4096 descriptor would require 4096 x 4 bytes of space whereas the WTA code would require 2000 bits in this example, that's a memory requirement reduction factor of 60!
 
 Project Presentation at IITGN (APR 2016):
 https://drive.google.com/file/d/0B6uAJSfesxBXM2o0Wl9ocC1pQVk/view
 
-WTA paper:
-Yagnik, Jay, et al. "The power of comparative reasoning." Computer Vision (ICCV), 2011 IEEE International Conference on. IEEE, 2011.
+[1] Yagnik, Jay, et al. "The power of comparative reasoning." Computer Vision (ICCV), 2011 IEEE International Conference on. IEEE, 2011.
+[2] Krizhevsky, A., Sutskever, I., and Hinton, G. E. ImageNet classification with deep convolutional neural networks.
+In NIPS, pp. 1106–1114, 2012.
 
-Related:
+Related paper:
 Dean, Thomas, et al. "Fast, accurate detection of 100,000 object classes on a single machine." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2013.
 
 Useful presentation:
